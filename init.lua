@@ -629,6 +629,21 @@ require('lazy').setup({
         -- ts_ls = {},
         --
 
+        ['ts_ls'] = {
+          on_attach = function(client, bufnr)
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          end,
+          settings = {
+            javascript = {
+              format = { enable = false },
+            },
+            typescript = {
+              format = { enable = false },
+            },
+          },
+        },
+
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
